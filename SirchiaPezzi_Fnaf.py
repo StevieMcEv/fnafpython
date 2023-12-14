@@ -2,6 +2,7 @@ import random #Used for determining when the animatronics will move positions
 import time
 
 from introdialogue import intro 
+from time import timer
 
 class animatronic:
 
@@ -69,6 +70,7 @@ else:
     print("Invalid input, please try again.")
     break   
 
+timer()
 while alive == True:
     while clock != 6:
         action = input(" ")
