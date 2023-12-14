@@ -72,7 +72,7 @@ else:
 
 timer()
 while alive == True:
-    while clock != 6:
+    while clock != 360:
         action = input(" ")
         if action == "a":
 
