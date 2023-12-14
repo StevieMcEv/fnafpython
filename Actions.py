@@ -1,5 +1,7 @@
 from SirchiaPezzi_Fnaf import location
+import ray
 
+@ray.remote
 action = input(" ")
             if action == "a":
 
