@@ -1,4 +1,6 @@
-while True:
-        clock = clock + 1
-        print(clock)
-        time.sleep(1)
+
+def timer():
+        while True:
+                clock = clock + 1
+                print(clock)
+                time.sleep(1)
