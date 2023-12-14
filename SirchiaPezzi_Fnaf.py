@@ -47,7 +47,8 @@ def move(self):
         movement = random.randint(0,(20 * (animatronic.agressive_lv) * (night/2)))
         if movement > random.randint(0,2):
             #then move
-
+            # What Im thinking of doing for movement is from here, generate a random number of (0,5) the number fetchs the item numbered that number in the list of roomsentering, and that becomes the location.
+            #the move() funtion would be played in a while loop every like 7 secondes.
 skipintro = input("Skip dialogue? (Answer in lowercase only):")
 if skipintro == "yes":
     print("Controls: (Remember these)")
