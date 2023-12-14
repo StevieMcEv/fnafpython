@@ -63,7 +63,13 @@ if skipintro == "yes":
     time.sleep(0.5)
     print("The night has commenced. Current time: 12AM.")
 
-    #This part could be put in a seperate file by using night()
+elif skipintro == "no":
+    intro()
+else:
+    print("Invalid input, please try again.")
+    break   
+
+while alive == True:
     while clock != 6:
         action = input(" ")
         if action == "a":
@@ -79,15 +85,5 @@ if skipintro == "yes":
 
         else:
             print("Invalid value")
-elif skipintro == "no":
-    intro()
-else:
-    print("Invalid input, please try again.")
-    break   
-
-while alive == True:
-    while True:
-        clock = clock + 1
-        print(clock)
-        time.sleep(1)
+    
     
