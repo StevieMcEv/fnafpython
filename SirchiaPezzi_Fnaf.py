@@ -40,9 +40,37 @@ displayclock = "12am"
 
 skipintro = input("Skip dialogue? (Answer in lowercase only):")
 if skipintro == "yes":
+    print("Controls: (Remember these)")
+    print("a - Close left door")
+    print("d - Close right door")
+    print("s - Flip up camera")
+    print("q - Check left light")
+    print("e - Check right light")
+    print(" ")
+    time.sleep(2)
     print("You have arrived at your desk.")
     time.sleep(0.5)
     print("The night has commenced. Current time: 12AM.")
+
+    #This part could be put in a seperate file by using night()
+    while clock != 6:
+       action = input(" ")
+        if action == "a"
+
+        elif action == "d"
+
+        elif action == "s"
+            print("Bonnie is in", bonnie(roomsentering)) #Idk how exactly to do this, but it would print the selected value of "roomsentering"
+            print("Chica is in", chica(roomsentering))
+            print("Freddy is in", freddy(roomsentering))
+            print("Foxy is in", foxy(roomsentering))
+
+        elif action == "q"
+
+        elif action == "e"
+
+        else:
+
 elif skipintro == "no":
     intro()
 else:
