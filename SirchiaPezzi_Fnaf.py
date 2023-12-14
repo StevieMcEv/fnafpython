@@ -37,10 +37,16 @@ rightlight = power(0,1.2,[False,True],[False,True])
 clock = 0 
 alive = True
 displayclock = "12am"
-
+night = 1
 def location(self):
     for animatronic in self.animatronic:
             print(animatronic.name + " is in " + str(animatronic.roomsentering))
+
+def move(self):
+    for animatronic in self.animatronic:
+        movement = random.randint(0,(20 * (animatronic.agressive_lv) * night))
+        if movement > random.randint(0,2):
+            #then move
 
 skipintro = input("Skip dialogue? (Answer in lowercase only):")
 if skipintro == "yes":
