@@ -1,3 +1,4 @@
+from SirchiaPezzi_Fnaf import move
 
 def timer():
         while True:
@@ -15,3 +16,5 @@ def timer():
                         print("It is 5AM")
                 if clock == 360:
                         print("It is 6AM")
+                if clock % 7 == 0:
+                        move()
