@@ -31,8 +31,8 @@ mainbreaker = power(100, 0, False, False)
 deskfan = power(0, 1, [False, True], False)
 leftdoor = power(0, 1.5, [False, True], [False, True])
 rightdoor = power(0, 1.5, [False, True], [False, True])
-leftlight = power(0,1.2,[False,True],[False,True])
-rightlight = power(0,1.2,[False,True],[False,True])
+leftlight = power(0,1.2,[False,True],False)
+rightlight = power(0,1.2,[False,True],False)
 
 clock = 0 
 alive = True
@@ -44,7 +44,7 @@ def location(self):
 
 def move(self):
     for animatronic in self.animatronic:
-        movement = random.randint(0,(20 * (animatronic.agressive_lv) * night))
+        movement = random.randint(0,(20 * (animatronic.agressive_lv) * (night/2)))
         if movement > random.randint(0,2):
             #then move
 
