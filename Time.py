@@ -1,5 +1,7 @@
 from SirchiaPezzi_Fnaf import move
 import time
+import ray
+@ray.remote
 def timer():
         while True:
                 clock = clock + 1
