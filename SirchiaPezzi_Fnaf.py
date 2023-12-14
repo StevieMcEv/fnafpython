@@ -1,9 +1,12 @@
 import random #Used for determining when the animatronics will move positions
 import time
-import ray
+import threading
 from Introdialogue import intro 
 from Time import timer
-
+from Action import playeraction
+from Time import move
+from Time import clock
+from Action import location
 class animatronic:
 
     def __init__(self, name : str, agressive_lv : float, hatelight : bool, roomsentering):
@@ -34,23 +37,14 @@ leftdoor = power(0, 1.5, [False, True], [False, True])
 rightdoor = power(0, 1.5, [False, True], [False, True])
 leftlight = power(0,1.2,[False,True],False)
 rightlight = power(0,1.2,[False,True],False)
-
-clock = 0 
+ 
 alive = True
-displayclock = "12am"
-night = 1
-def location(self):
-    for animatronic in self.animatronic:
-            print(animatronic.name + " is in " + str(animatronic.roomsentering))
-@ray.remote
-def move(self):
-    for animatronic in self.animatronic:
-        movement = random.randint(0,(20 * (animatronic.agressive_lv) * (night/2)))
-        if movement > random.randint(0,2):
-            #then move
-            # What Im thinking of doing for movement is from here, generate a random number of (0,5) the number fetchs the item numbered that number in the list of roomsentering, and that becomes the location.
-            #the move() funtion would be played in a while loop every like 7 secondes.
+
 skipintro = input("Skip dialogue? (Answer in lowercase only):")
+
+thread_one = threading.Thread(target=move)
+thread_two = threading.Thread(target=timer)
+thread_three = threading.Thread(target=playeraction)
 if skipintro == "yes":
     print("Controls: (Remember these)")
     print("a - Close left door")
@@ -68,12 +62,13 @@ elif skipintro == "no":
     intro()
 else:
     print("Invalid input, please try again.")
-    break   
+       
 
-timer()
-
-    while clock != 360:
-        if alive == True:
-            ray.get([move.remote(), timer.remote(), action.remote()])
-    
-    
+thread_one.start()
+thread_two.start()
+thread_three.start()
+while clock != 360:
+    if alive == True:
+        break
+print("You're Dead")
+exit()
