@@ -1,6 +1,6 @@
 import random #Used for determining when the animatronics will move positions
 import time
-
+import ray
 from Introdialogue import intro 
 from Time import timer
 
@@ -42,7 +42,7 @@ night = 1
 def location(self):
     for animatronic in self.animatronic:
             print(animatronic.name + " is in " + str(animatronic.roomsentering))
-
+@ray.remote
 def move(self):
     for animatronic in self.animatronic:
         movement = random.randint(0,(20 * (animatronic.agressive_lv) * (night/2)))
@@ -71,21 +71,9 @@ else:
     break   
 
 timer()
-while alive == True:
+
     while clock != 360:
-        action = input(" ")
-        if action == "a":
-
-        elif action == "d":
-
-        elif action == "s":
-            location()
-
-        elif action == "q":
-
-        elif action == "e":
-
-        else:
-            print("Invalid value")
+        if alive == True:
+            ray.get([move.remote(), timer.remote(), action.remote()])
     
     
