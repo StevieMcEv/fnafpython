@@ -1,8 +1,8 @@
 import random #Used for determining when the animatronics will move positions
 import time
 
-from introdialogue import intro 
-from time import timer
+from Introdialogue import intro 
+from Time import timer
 
 class animatronic:
 
