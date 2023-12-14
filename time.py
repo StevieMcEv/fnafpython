@@ -12,7 +12,7 @@ def timer():
                         print("It is 3AM")
                 if clock == 240:
                         print("It is 4AM")
-                if clock == 300
+                if clock == 300:
                         print("It is 5AM")
                 if clock == 360:
                         print("It is 6AM")
