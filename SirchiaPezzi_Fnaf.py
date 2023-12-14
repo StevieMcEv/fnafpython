@@ -38,6 +38,10 @@ clock = 0
 alive = True
 displayclock = "12am"
 
+def location(self):
+    for animatronic in self.animatronic:
+            print(animatronic.name + " is in " + str(animatronic.roomsentering))
+
 skipintro = input("Skip dialogue? (Answer in lowercase only):")
 if skipintro == "yes":
     print("Controls: (Remember these)")
@@ -54,23 +58,20 @@ if skipintro == "yes":
 
     #This part could be put in a seperate file by using night()
     while clock != 6:
-       action = input(" ")
-        if action == "a"
+        action = input(" ")
+        if action == "a":
 
-        elif action == "d"
+        elif action == "d":
 
-        elif action == "s"
-            print("Bonnie is in", bonnie(roomsentering)) #Idk how exactly to do this, but it would print the selected value of "roomsentering"
-            print("Chica is in", chica(roomsentering))
-            print("Freddy is in", freddy(roomsentering))
-            print("Foxy is in", foxy(roomsentering))
+        elif action == "s":
+            location()
 
-        elif action == "q"
+        elif action == "q":
 
-        elif action == "e"
+        elif action == "e":
 
         else:
-
+            print("Invalid value")
 elif skipintro == "no":
     intro()
 else:
