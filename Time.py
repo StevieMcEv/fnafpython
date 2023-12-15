@@ -1,12 +1,12 @@
 import time
 import random
 
-clock = 1
+clock = 0
 def move(self):
         for animatronic in self.animatronic:
                 movement = random.randint(0,(20 * (animatronic.agressive_lv)))
                 if movement > random.randint(0,2):
-                        print("move")
+                        animatronic.roomsentering.index = animatronic.roomsentering.index + 1
 
 def timer():
         while True:
@@ -14,14 +14,20 @@ def timer():
                 time.sleep(1)
                 if clock == 60:
                         print("It is 1AM")
+                        time.sleep(2)
+                        print("Mark: What?! It's only 1 AM?")
                 if clock == 120:
                         print("It is 2AM")
                 if clock == 180:
                         print("It is 3AM")
+                        time.sleep(2)
+                        print("Mark: Halfway there!")
                 if clock == 240:
                         print("It is 4AM")
                 if clock == 300:
                         print("It is 5AM")
+                        time.sleep(2)
+                        print("Mark: I can smell the victory!")
                 if clock == 360:
                         print("It is 6AM")
                 if clock % 7 == 0:

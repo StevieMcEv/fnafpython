@@ -1,14 +1,26 @@
 import time
 
+
+
+
 def intro():
+    time.sleep(3)
+    print("*Ring ring*")
+    time.sleep(1)
+    print("*Ring ring*")
+    time.sleep(1)
     print("Hello? Hello, hello?")
+    time.sleep(0.5)
+    print("Mark: Hello?")
     time.sleep(1)
     print("Uhhh..")
     time.sleep(1)
     print("I wanted to record this message to settle in this night.")
     time.sleep(3)
     print("Uh, The animatronics tend to get a bit quirky at night...")
-    time.sleep(4)
+    time.sleep(1)
+    print("Mark: Quirky? What does that mean?")
+    time.sleep(3)
     print("But don't worry, your office contains lights and doors to keep the animatronics from entering your office.")
     time.sleep(4)
     print("We've also equipped you with a tablet to view the pizzeria's cameras.")
@@ -22,5 +34,7 @@ def intro():
     print("Alright, I'll leave you to it.")
     time.sleep(2)
     print("Good luck and good night!")
+    time.sleep(0.5)
+    print("Mark: Thank you Mr.Phone guy!")
     time.sleep(1.5)
     print("*Click*")

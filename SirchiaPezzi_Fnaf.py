@@ -1,6 +1,7 @@
+#AS03 - FnafPython - Yoan Pezzi and Steven Sirchia  
+from multiprocessing import Process
 import random #Used for determining when the animatronics will move positions
 import time
-import threading
 from Introdialogue import intro 
 from Time import timer
 from Action import playeraction
@@ -16,59 +17,99 @@ class animatronic:
         self.roomsentering = roomsentering
 
 freddy = animatronic("Freddy", 0.1, False, ["stage","dining","bathroom","easthall","easthallcorner","office",])
-gfreddy = animatronic("Golden Freddy", 0.05, False, ["partsservice","office",])
 bonnie = animatronic("Bonnie", 0.3, True, ["stage", "dining","partsservice","westhall","easthallcorner","office"] )
 chica = animatronic("Chica", 0.2, True, ["stage", "dining", "kitchen","easthall","easthallcorner", "office"])
-foxy = animatronic("Foxy", 0.25, False, ["cove, westhall", "office"])
-yoan = animatronic("Yoan", 0.001, False,["gym", "westhallcorner", "office"])
+foxy = animatronic("Foxy", 0.15, False, ["cove", "cove", "cove", "westhall", "office"])
+
+locations = [freddy.roomsentering, bonnie.roomsentering, chica.roomsentering, foxy.roomsentering]
 
 
-class power:
+class markiplier:
     
-    def __init__(self, stored: int, consumption: int, poweroutage : bool, foxyhit: bool):
-        self.stored = stored
-        self.consumption = consumption
-        self.poweroutage = poweroutage
-        self.foxyhit = foxyhit
+    def __init__(self, mood, wongame, introlisten,):
+        self.mood = mood
+        self.wongame = wongame
+        self.introlisten = introlisten
 
-mainbreaker = power(100, 0, False, False)
-deskfan = power(0, 1, [False, True], False)
-leftdoor = power(0, 1.5, [False, True], [False, True])
-rightdoor = power(0, 1.5, [False, True], [False, True])
-leftlight = power(0,1.2,[False,True],False)
-rightlight = power(0,1.2,[False,True],False)
- 
-alive = True
-
-skipintro = input("Skip dialogue? (Answer in lowercase only):")
-
-thread_one = threading.Thread(target=move)
-thread_two = threading.Thread(target=timer)
-thread_three = threading.Thread(target=playeraction)
-if skipintro == "yes":
-    print("Controls: (Remember these)")
-    print("a - Close left door")
-    print("d - Close right door")
-    print("s - Flip up camera")
-    print("q - Check left light")
-    print("e - Check right light")
-    print(" ")
+def animatronicdoor(self):
+    print("Mark: Oh crap, there's an animatronic at the door!")
+    time.sleep(1)
+    print("Markiplier then proceed to close both doors and shine the door lights like a maniac")
+    time.sleep(3)
+    print("Mark: Go away! GO AWAY!")
+    if animatronic.roomsentering.index == 5:
+        animatronic.roomsentering.index = animatronic.roomsentering.index - random.randint(1,4)
+    time.sleep(3)
+    print("Mark: Hey, I think it worked!")
     time.sleep(2)
-    print("You have arrived at your desk.")
+    print("Markiplier then opened the doors and stopped using the lights.")
+    
+
+
+def paranoid():
+    reaction = random.randint(1,10)
+    if reaction == 1:
+        print("Mark: What was that?")
+        bonnie.agressive_lv = 0.5
+        chica.agressive_lv = 0.45
+        time.sleep(5)   
+        print("Mark: These animatronics are starting to freak me out!")
+        bonnie.agressive_lv = 0.3
+        chica.agressive_lv = 0.2
+    elif reaction == 2:
+        print("Mark: Was that the bite of 87?!")
+    elif reaction == 3:
+        print("Mark: Who's there?")
+        time.sleep(1)
+        print("Mark: Freddy if that's you, I will fight back, I swear!")
+        freddy.agressive_lv = 0.3
+
+
+def wonreaction():
+    print("Mark: Oh, YESSS, I did it! Take that Freddy, you stupid bear.")
+    time.sleep(2)
+    print("Mark: Well anyways thanks for watching, and I will see you in the next one, bye-bye!")
+
+
+def func1():
+    print("caca")
+    time.sleep(1)
+    print("piss")
+def func2():
     time.sleep(0.5)
-    print("The night has commenced. Current time: 12AM.")
+    print("fart")
 
-elif skipintro == "no":
-    intro()
-else:
-    print("Invalid input, please try again.")
-       
+# print("Mark: Hello everybody my name is Markiplier and welcome to Five Nights at Freddy's!")
+# time.sleep(2.5)
+# print("Mark: An indie horror game you guys suggested in mass...")
+# time.sleep(3)
+# print("Mark: Apparently it's really good!")
+# time.sleep(2)
+# print("Mark: Without further ado, let's get started.")
+# intro()
 
-thread_one.start()
-thread_two.start()
-thread_three.start()
+
+
+if __name__ == "__main__":
+ p1 = Process(target= func1)
+ p2 = Process(target= func2)
+ p1.start()
+ p2.start()
+ p1.join()
+ p2.join()
+    
+            
+                
 while clock != 360:
-    if alive == True:
-        break
-print("You're Dead")
-exit()
+    scared = random.randint(0,20)
+    if scared == 8:
+        paranoid()
+    for i in locations:
+        if i.index == 5:
+            animatronicdoor()
+    print("...")
+    time.sleep(1)
+
+
+
+wonreaction()
