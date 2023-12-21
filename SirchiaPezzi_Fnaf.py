@@ -18,10 +18,10 @@ class animatronic: #The animatronic class to create the animatronics
         self.hatelight = hatelight
         self.roomsentering = roomsentering
 
-freddy = animatronic("Freddy", 0.3, False, ["stage","dining","bathroom","easthall","easthallcorner","office",])
-bonnie = animatronic("Bonnie", 0.6, True, ["stage", "dining","partsservice","westhall","easthallcorner","office"] )
-chica = animatronic("Chica", 0.5, True, ["stage", "dining", "kitchen","easthall","easthallcorner", "office"])
-foxy = animatronic("Foxy", 0.3, False, ["cove", "cove", "cove", "cove", "westhall", "office"])
+freddy = animatronic("Freddy", 3, False, ["stage","dining","bathroom","easthall","easthallcorner","office",])
+bonnie = animatronic("Bonnie", 6, True, ["stage", "dining","partsservice","westhall","easthallcorner","office"] )
+chica = animatronic("Chica", 5, True, ["stage", "dining", "kitchen","easthall","easthallcorner", "office"])
+foxy = animatronic("Foxy", 3, False, ["cove", "cove", "cove", "cove", "westhall", "office"])
 
 
 
@@ -103,20 +103,20 @@ def paranoid():
     reaction = random.randint(1,10) #This randomizes Markiplier's reaction
     if reaction == 1:
         print("Mark: What was that?")
-        bonnie.agressive_lv = 0.7
-        chica.agressive_lv = 0.6
+        bonnie.agressive_lv = 7
+        chica.agressive_lv = 6
         time.sleep(5)   
         print("Mark: These animatronics are starting to freak me out!")
         clock = clock + 5
     elif reaction == 2:
         print("Mark: Was that the bite of 87?!")
-        bonnie.agressive_lv = 0.6 #This causes some animatronics to get more agressive
-        chica.agressive_lv = 0.4
+        bonnie.agressive_lv = 6 #This causes some animatronics to get more agressive
+        chica.agressive_lv = 4
     elif reaction == 3:
         print("Mark: Who's there?")
         time.sleep(1)
         print("Mark: Freddy if that's you, I will fight back, I swear!")
-        freddy.agressive_lv = 0.8
+        freddy.agressive_lv = 8
         clock = clock + 1
 
 def wonreaction():
@@ -171,19 +171,19 @@ def move():
     
     who = random.randint(0,3) #Chooses who moves at random
     if who == 0: 
-        movement = random.randint(1,(20 * (bonnie.agressive_lv))) #This makes a number that needs to surpass a generated integer between (0,2), 
+        movement = random.randint(1,(2 * (bonnie.agressive_lv))) #This makes a number that needs to surpass a generated integer between (0,2), 
         if movement > random.randint(0,2): #The higher agressive level can make it more likely for an animatronic to move
             bonloc = bonloc + 1 #This makes them move
     if who == 1: 
-        movement = random.randint(1,(20 * (freddy.agressive_lv)))
+        movement = random.randint(1,(2 * (freddy.agressive_lv)))
         if movement > random.randint(0,2):
             fredloc = fredloc + 1
     if who == 2: 
-        movement = random.randint(1,(20 * (chica.agressive_lv)))
+        movement = random.randint(1,(2 * (chica.agressive_lv)))
         if movement > random.randint(0,2):
             chicaloc = chicaloc + 1
     if who == 3: 
-        movement = random.randint(1,(20 * (foxy.agressive_lv)))
+        movement = random.randint(1,(2 * (foxy.agressive_lv)))
         if movement > random.randint(0,2):
             foxyloc = foxyloc + 1
 
